@@ -251,6 +251,32 @@ class WTVCache {
 		return true
 	}
 
+	async updateStockCache(ticker) {
+		var stockCache = new Object();
+		let parser = new this.Parser();
+		// download and format data from the polygon.io API
+		try {
+			let stockfeed = await this.fetch("https://api.polygon.io/v2/aggs/" + ticker + "/prev?adjusted=true&apiKey=" + this.minisrv_config.config.stockApiKey)
+			stockfeed = await stockfeed.json()
+
+			stockCache.results = stockfeed.results.slice(0, 3).map(function (item) {
+				return {
+					// uhhhhh
+					ticker: item.ticker,
+					prices: item.results,
+					link: 'client:showalert?message=you are NOT trading stocks on WebTV'
+				};
+			});
+		} catch(e) {
+			stockCache = null;
+			console.log(e)
+		}
+		stockCache.lastUpdated = Math.floor(Date.now() / 1000)
+		this.fs.writeFileSync('./ServiceInfoCache/stock_' + ticker + '.json', JSON.stringify(stockCache));
+		console.log(" * Finished downloading new stock information for " + ticker)
+		return true
+	}
+
     async getNewsCache() {
 		// check if it exists, get new cache if it doesn't
 		const cacheFile = './ServiceInfoCache/newsCache.json';
@@ -338,6 +364,30 @@ class WTVCache {
 			return JSON.parse(weatherCacheRaw)
 		}
     }
+
+    async getStockCache(ticker) {
+		// like with weather, each stock has its own file to minimize loading times (even if it's only two arguments but shush)
+		const cacheFile = './ServiceInfoCache/stock_' + ticker + '.json';
+		if (!this.fs.existsSync(cacheFile)) {
+			console.log(" * Stocks cache file for " + ticker + " doesn't exist, getting data")
+			await this.updateStockCache()
+			stockCacheRaw = this.fs.readFileSync(cacheFile);
+			stockCache = JSON.parse(stockCacheRaw);
+		} else {
+			// load the file from disk
+			var stockCacheRaw = this.fs.readFileSync(cacheFile);
+			var stockCache = JSON.parse(stockCacheRaw)
+			const now = Math.floor(Date.now() / 1000)
+			// check if (and how) we should be downloading new data
+			if (stockCache.lastUpdated + 86400 <= now) {
+				// stocks are outdated (1 day old, the stocks aren't in realtime with the free plan), update in the background
+				console.log(" * Stock " + ticker + " has passed its shelf life, downloading new info in the background")
+				this.updateStockCache();
+			}
+		}
+		// data is good to send to the user
+		return stockCache;
+	}
 
 }
 
