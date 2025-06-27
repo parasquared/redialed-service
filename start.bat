@@ -1,4 +1,4 @@
 :Start
-node --openssl-legacy-provider app.js
-goto:start
+npm run start17
+goto Start
 pause
