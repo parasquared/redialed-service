@@ -38,7 +38,7 @@ Chat
 <table href="wtv-home:/home" height=76 cellspacing=0 cellpadding=0>
 <tr>
 <td align=right>
-<img src="wtv-home:/ROMCache/WebTVLogoJewel.gif" width=87 height=67>
+<img src="file://ROMCache/WebTVLogoJewel.gif" width=87 height=67>
 </table>
 <td width=6>
 <tr>
