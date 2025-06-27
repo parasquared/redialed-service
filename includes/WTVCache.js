@@ -192,12 +192,13 @@ class WTVCache {
 		let parser = new this.Parser();
 		var weatherCache = new Object();
 		// download and format data from The Weather Channel's API
+		// i apologize in advance for my really bad "error handling"
 		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
 		weather = await weather.json()
 		try { weatherCache.temp = weather.temperature } catch { weatherCache.temp = 69; }
         try { weatherCache.humid = weather.relativeHumidity } catch { weatherCache.humid = 4; }
-        try { weatherCache.icon = twcIcons[weather.iconCode] } catch { weatherCache.icon = 1 }
-        try { weatherCache.cond = weather.wxPhraseMedium.toLowerCase() } catch { weatherCache.cond = "No weather data!"}
+        try { weatherCache.icon = twcIcons[weather.iconCode] } catch { weatherCache.icon = twcIcons[1]; }
+        try { weatherCache.cond = weather.wxPhraseMedium.toLowerCase() } catch { weatherCache.cond = "No weather data"}
 		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
 		forecast = await forecast.json()
 		let dayIcons = {};
@@ -210,15 +211,14 @@ class WTVCache {
 			dayIcons[dayIndex++] = icon;
 			}
 		} catch {
-			let dayIndex = 0;
-			let icon = 1;
-			dayIcons[dayIndex++] = 1;
+			let icon = twcIcons[1];
+			dayIcons = icon;
 		}
 
 		try {
 			let next5Days = forecast.dayOfWeek.slice(0, 5);
 		} catch {
-			let next5Days = "No weather data!";
+			let next5Days = "???";
 		}
 		let daysOfWeek = {};
 
@@ -234,11 +234,11 @@ class WTVCache {
 				};
 			}
 		} catch {
-			let dayFormatted = 1;
+			let dayFormatted = "Tuesday";
 			daysOfWeek[dayFormatted] = {
 				high: 99,
 				low: 0,
-				icon: 1,
+				icon: twcIcons[1],
 			};
 		}
 		
@@ -253,7 +253,6 @@ class WTVCache {
 
     async getNewsCache() {
 		// check if it exists, get new cache if it doesn't
-		// TODO: clean up and add this check to the other caches too
 		const cacheFile = './ServiceInfoCache/newsCache.json';
 		if (!this.fs.existsSync(cacheFile)) {
 			console.log(" * News cache file doesn't exist, getting news data")
