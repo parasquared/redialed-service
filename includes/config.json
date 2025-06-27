@@ -2,8 +2,9 @@
   "config": {
     "service_ip": "127.0.0.1",
     "serviceType": "Production",
-    "ServiceVaults": [
-      "ServiceVault"
+	"ServiceVaults": [
+		"UserServiceVault",
+		"ServiceVault"
     ],
     "ServiceTemplates": [
       "UserTemplates",
@@ -20,8 +21,8 @@
     "service_owner_account": "huh",
     "service_owner_contact": "what",
     "service_owner_contact_method": "Discord",
-    "service_name": "WebTV",
-    "service_logo": "WebTVLogoJewel.gif",
+    "service_name": "ParaTV",
+	"service_logo": "wtv-home:/images/WebTVTransJewel.gif",
     "service_splash_logo": "file://ROM/images/SplashLogo1.gif",
     "hide_ssid_in_logs": false,
     "filter_passwords_in_logs": false,
