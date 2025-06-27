@@ -1,9 +1,7 @@
 # WebTV Redialed / ParaTV
 This is a replacement service for WebTV/MSN TV (1st generation) clients, originally based on zefie's [minisrv](https://github.com/zefie/zefie_wtvp_minisrv) project. **This software is provided AS IS, with NO WARRANTY.**
 
-This branch (`paratv`) has my own changes, mostly done for myself to assist with messing around with the WebTV hardware and service.
-
-This service is not designed to be ran anywhere except on the main Redialed server. It's assumed that you know what you're doing when running it; no help for setting up the server will be provided for any reason.
+This branch (`paratv`) has my own changes, mostly done for myself to assist with messing around with the WebTV hardware and service. No help will be provided in trying to get this branch to run, nor the original Redialed codebase.
 
 ## Acknowledgements
 - [SKCro](https://github.com/SKCro/) for creating the transgender WebTV jewel for this fork
