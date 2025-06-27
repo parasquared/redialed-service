@@ -33,11 +33,6 @@ data += `<font color="#666666" size=0>TM</font>`
 } */
 data += `<br><br>`;
 
-if (!isHall) {
-    // determine gamer level
-    if (session_data.hasCap("client-has-tuner")) data += `<spacer type=block width=5>
-    <img src="ROMCache/plus.gif" width=232 height=21>`;
-}
 data += `
 <p><br>`;
 
@@ -46,7 +41,7 @@ if (minisrv_config.config.serviceType == "Debug") {
     data += `
     <table border>
     <tr><td width=150>
-    WebTV Redialed (Debug)
+    ${minisrv_config.config.service_name} (Debug)
     <tr><td>
     <b>Node.js version</b>: ${process.version}<br>
     <b>Server OS</b>: ${os.type()} v${os.release()} (${os.machine()})<br>

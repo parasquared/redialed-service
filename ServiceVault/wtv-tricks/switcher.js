@@ -49,13 +49,13 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 <table cellspacing="0" cellpadding="0" cellborder="0">
   <tr>
     <td width="104" height="80" valign="top" align="left"><spacer type="block" WIDTH="11" HEIGHT="11"><br>
-<spacer type="block" WIDTH="10" HEIGHT="1">    <a href="wtv-home:/home"><img src="${minisrv_config.config.service_logo}" width="87"
+<spacer type="block" WIDTH="10" HEIGHT="1">    <a href="wtv-home:/home"><img src=wtv-home:/ROMCache/WebTVLogoJewel.gif width="87"
     height="67"></a>       
       </td>
     <td width="456" height="80" valign="middle" align="center">
  <br><h2>
          &nbsp;<font size=+1>Server Switchinator 9000</font><br>
-		 &nbsp;<font size=-1><i>for when you just really hate the 90s</i></font>
+		 &nbsp;<font size=-2><i>for when you need to put the skinny jeans back on</i></font>
          </h2>
 </td>
   </tr>

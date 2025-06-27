@@ -68,7 +68,6 @@ const messages = [
     "This is the sign you've been looking for",
     "Hey Lois, I'm in wtv-tricks:/tricks",
     "<embed src=sounds/noway.mid autostart=true><marquee>GET BLUE SPHERES!</marquee>",
-    "Let the record show that <a href='mailto:ultra0@WebTV?subject=you%20got%20a%20small%20microwave%20my%20guy'>ultra0</a> has a small microwave",
     "<a href='http://frogfind.com/?q=florida+man+" + month + "%2F" + day + "'>Florida is not real.</a>",
     "Brought to you by the letter T",
     "The Polyzoot admin command is not real",

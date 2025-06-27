@@ -1,5 +1,5 @@
 {
-  "Games": {
+  "GamesLC2": {
     "base": "file:/Disk/Browser/Games/",
     "location": "content/Games/",
     "service_owned": true,

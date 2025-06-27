@@ -183,7 +183,7 @@
       "port": 1615,
       "connections": 1,
       "flags": "0x00000004",
-      "send_tellyscripts": true,
+      "send_tellyscripts": false,
       "privileged": true
     },
     "wtv-flashrom": {
@@ -300,6 +300,9 @@
       "port": 1650,
       "connections": 3,
       "flags": "0x00000001"
+    },
+    "wtv-client": {
+	  "port": 1616
     },
     "pc_services": {
       "port": 1337,

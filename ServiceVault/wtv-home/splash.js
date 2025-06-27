@@ -59,10 +59,7 @@ data += `
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
 /* the code below is only currently known to be present on post 1999 webtv
 if (!session_data.hasCap('client-has-tv-experience')) { data += `<font color=666666 size=0>TM</font>` } */
-if (!isHall) {
-		// determine gamer level
-		if (session_data.hasCap('client-has-tuner')) data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
-}
+
 
 if (debug) {
 		const process = require('process');
@@ -70,7 +67,7 @@ if (debug) {
 		data += `
 		</tr></td><tr><td align=center valign=top height=128>
 		<table bgcolor=191919 gradcolor=080808 border>
-		<tr><td align=center colspan=2><blackface><b><shadow>WebTV Redialed (Debug)
+		<tr><td align=center colspan=2><blackface><b><shadow>${minisrv_config.config.service_name} (Debug)
 		<tr><td><shadow><b>Node.js version:<td><shadow>${process.version}
 		<tr><td><shadow><b>Server OS:<td><shadow>${os.type()} v${os.release()} (${os.machine()})
 		<tr><td><shadow><b>Server account:<td><shadow>${os.userInfo().username}

@@ -1,26 +1,18 @@
 [
     {
-        "img": "wtv-home:/shared/ads/default/wtvnews_red_1.jpg",
-        "url": "wtv-center:/cwtv/redirect"
-    },
-	{
-        "img": "wtv-home:/shared/ads/skcro/webtvhd.gif",
-        "url": "https://SKCro.github.io/WebTV-HD/wtv.html"
-    },
-	{
-        "img": "wtv-home:/shared/ads/smallmicrowave/basement.gif",
-        "url": "http://ultra0.xyz"
-    },
-	{
-        "img": "wtv-home:/shared/ads/secondsight/br_wtv_ad.gif",
-        "url": "http://bezerk.uk/htmls/redialed.html"
+        "img": "wtv-home:/shared/ads/nitrate92/clacks.jpg",
+        "url": "client:showalert?message=go%20hit%20up%20your%20local%20ebgames%20or%20something"
     },
     {
-        "img": "wtv-home:/shared/ads/cinnapoodle/wtvrumble.gif",
-        "url": "https://vinnyflowers.neocities.org/WebTVRumble"
+        "img": "wtv-home:/shared/ads/jarhead/bigbill.jpg",
+        "url": "wtv-center:/challenge-pissing.mpeg"
     },
     {
-        "img": "wtv-home:/shared/ads/cinnapoodle/dreamscape.gif",
-        "url": "http://cinnapoodle.github.io/chronospace/wtv/index.html"
-    }   
+        "img": "wtv-home:/images/dynamic/0326_webtvstore_sean_hp.jpg",
+        "url": "client:showalert?message=ParaTV%20is%20not%20allowed%20to%20accept%20purchases%20after%20what%20happened%20last%20time"
+    },
+    {
+        "img": "wtv-home:/images/Community/MessengerTeaser.gif",
+        "url": "wtv-setup:/messenger"
+    }
 ]

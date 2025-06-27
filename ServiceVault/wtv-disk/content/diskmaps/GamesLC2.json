@@ -1,7 +1,9 @@
 {
   "GamesLC2": {
-    "base": "file://Disk/Browser/Games//",
+    "base": "file://Disk/Browser/Games/",
     "location": "content/GamesLC2/",
+    "service_owned": true,
+    "display": "Retrieving Files",
     "files": [
       {
         "file": "file://Disk/Browser/Games//AboutDoom.html"

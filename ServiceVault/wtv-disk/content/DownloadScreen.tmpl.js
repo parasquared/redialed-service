@@ -20,7 +20,7 @@ if (!request_headers.query.group) data += `&root=file://Disk/Browser/`;
 else data += `&group=${request_headers.query.group}`;
 data += `&message=Retrieving Files..."
 	>
-	<display downloadsuccess=client:goback downloadfail=client:goback>
+	<display downloadsuccess=client:goback downloadfail=client:showalert?message=fuck&buttonAction1=client:goback&buttonLabel1=OK>
 	<title>Retrieving Files</title>
 </head>
 <body bgcolor=#0 text=#42CC55 fontsize=large hspace=0 vspace=0>
