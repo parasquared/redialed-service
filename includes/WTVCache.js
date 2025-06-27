@@ -191,36 +191,54 @@ class WTVCache {
 		};
 		let parser = new this.Parser();
 		var weatherCache = new Object();
-		// download and format data from NYT's RSS feeds
-		// this code looked so nice before i added this shitass error handling, i am beyond disappointed
+		// download and format data from The Weather Channel's API
 		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
 		weather = await weather.json()
-		weatherCache.temp = weather.temperature
-        weatherCache.humid = weather.relativeHumidity
-        weatherCache.icon = twcIcons[weather.iconCode]
-        weatherCache.cond = weather.wxPhraseMedium.toLowerCase()
+		try { weatherCache.temp = weather.temperature } catch { weatherCache.temp = 69; }
+        try { weatherCache.humid = weather.relativeHumidity } catch { weatherCache.humid = 4; }
+        try { weatherCache.icon = twcIcons[weather.iconCode] } catch { weatherCache.icon = 1 }
+        try { weatherCache.cond = weather.wxPhraseMedium.toLowerCase() } catch { weatherCache.cond = "No weather data!"}
 		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
 		forecast = await forecast.json()
 		let dayIcons = {};
 
-		for (let i = 0, dayIndex = 0; i < 10; i += 2) {
+		try {
+			for (let i = 0, dayIndex = 0; i < 10; i += 2) {
 			let icon = forecast.daypart[0].iconCode[i]
 				? forecast.daypart[0].iconCode[i]
 				: forecast.daypart[0].iconCode[i + 1];
 			dayIcons[dayIndex++] = icon;
+			}
+		} catch {
+			let dayIndex = 0;
+			let icon = 1;
+			dayIcons[dayIndex++] = 1;
 		}
 
-		let next5Days = forecast.dayOfWeek.slice(0, 5);
+		try {
+			let next5Days = forecast.dayOfWeek.slice(0, 5);
+		} catch {
+			let next5Days = "No weather data!";
+		}
 		let daysOfWeek = {};
 
 		// Format 5 day forecast for the page
-		for (let i = 0; i < 5; i++) {
-			let dayFormatted = next5Days[i].substring(0, 3).toUpperCase();
+		try {
+				for (let i = 0; i < 5; i++) {
+				let dayFormatted = next5Days[i].substring(0, 3).toUpperCase();
 
+				daysOfWeek[dayFormatted] = {
+					high: forecast.calendarDayTemperatureMax[i],
+					low: forecast.calendarDayTemperatureMin[i],
+					icon: twcIcons[dayIcons[i]],
+				};
+			}
+		} catch {
+			let dayFormatted = 1;
 			daysOfWeek[dayFormatted] = {
-				high: forecast.calendarDayTemperatureMax[i],
-				low: forecast.calendarDayTemperatureMin[i],
-				icon: twcIcons[dayIcons[i]],
+				high: 99,
+				low: 0,
+				icon: 1,
 			};
 		}
 		
@@ -241,7 +259,7 @@ class WTVCache {
 			console.log(" * News cache file doesn't exist, getting news data")
 			await this.updateNewsCache()
 			newsCacheRaw = this.fs.readFileSync(cacheFile);
-			newsCache = JSON.parse(newsCacheRaw)
+			newsCache = JSON.parse(newsCacheRaw);
 		} else {
 			// load the file from disk
         	var newsCacheRaw = this.fs.readFileSync(cacheFile);
@@ -265,25 +283,34 @@ class WTVCache {
     }
 	
 	async getReleaseCache() {
-		// load the file from disk
-        var releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
-		var releaseCache = JSON.parse(releaseCacheRaw)
-		const now = Math.floor(Date.now() / 1000)
-		// check if (and how) we should be downloading new data
-		if (releaseCache.lastUpdated + 604800 <= now) {
-			// release info is unreasonably outdated (1+ week old), so force the user to wait while we update it
-			console.log(" * Release info is over a week old, forcing the user to wait while we download the latest info")
-			await this.updateReleaseCache();
-			releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
+		// check if it exists, get new cache if it doesn't
+		const cacheFile = './ServiceInfoCache/releasesCache.json'
+		if (!this.fs.existsSync(cacheFile)) {
+			console.log(" * Release cache file doesn't exist, getting release data")
+			await this.updateReleaseCache()
+			releaseCacheRaw = this.fs.readFileSync(cacheFile);
 			releaseCache = JSON.parse(releaseCacheRaw)
-		} else if (releaseCache.lastUpdated + 86400 <= now) {
-			// release info is only slightly outdated (1-7 days old), so treat the update as a background function (no async)
-			console.log(" * Release info has passed its shelf life, downloading new info in the background")
-			this.updateReleaseCache();
+		} else {
+			// load the file from disk
+			var releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
+			var releaseCache = JSON.parse(releaseCacheRaw)
+			const now = Math.floor(Date.now() / 1000)
+			// check if (and how) we should be downloading new data
+			if (releaseCache.lastUpdated + 604800 <= now) {
+				// release info is unreasonably outdated (1+ week old), so force the user to wait while we update it
+				console.log(" * Release info is over a week old, forcing the user to wait while we download the latest info")
+				await this.updateReleaseCache();
+				releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
+				releaseCache = JSON.parse(releaseCacheRaw)
+			} else if (releaseCache.lastUpdated + 86400 <= now) {
+				// release info is only slightly outdated (1-7 days old), so treat the update as a background function (no async)
+				console.log(" * Release info has passed its shelf life, downloading new info in the background")
+				this.updateReleaseCache();
+			}
+			// data is good to send to the user
+			return releaseCache;
 		}
-		// data is good to send to the user
-        return releaseCache;
-    }
+	}
 	
 	async getWeatherCache(zip) {
 		try {
