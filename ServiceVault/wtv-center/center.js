@@ -37,7 +37,7 @@ switch (infoCenter) {
 	case "WebTVToday":
 		request_is_async = true; // Make us async
 
-		function renderToday(newsData, weatherData) {
+		function renderToday(newsData, weatherData, stockData) {
 			const clubWebTVTitle = fs.readFileSync(
 				"./ServiceDeps/clubWebTVTitle.txt",
 				{ encoding: "utf8", flag: "r" }
@@ -163,8 +163,19 @@ Weather info is unavailable`;
 <table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
 <td width=75 valign=top> 
 <img src="wtv-center:/images/arrow_money.gif"> <td> 
-<font size=-1 color="#000000">Stock quotes are unavailable.</font> </table> 
-<spacer type=vertical size=18><br><br>
+`;
+			try {
+				if (stockData.results != null) {
+					data += `<b><font color=#000000>${stockData.results[0].T}</font></b><br><font color=#000000>Closing price: $${stockData.results[0].c}</font></table>`;
+				} else {
+					data += "<font size=-1 color=#000000>Stock quotes are unavailable.</font> </table>";
+					console.log(" # Stock API is unavailable?");
+				}
+			} catch (e) {
+				data += "<font size=-1 color=#000000>Stock quotes are unavailable.</font> </table>";
+				console.log("An error occured with the stocks API: " + e)
+			}
+	data += `<spacer type=vertical size=18><br><br>
 <blackface><font color=000000 size=5>today in </font><font color=4A3121 size=5>sports</font></blackface><br>
 <table abswidth=357 cellspacing=0 cellpadding=0> <tr> 
 <td width=75 valign=top> 
@@ -265,13 +276,16 @@ Weather info is unavailable`;
 		}
 
 		(async () => {
+			// temporary hardcoding for testing
+			const ticker = "AAPL";
 			// Load the RSS data
 			let newsData = await wtvc.getNewsCache();
 			let weatherData = await wtvc.getWeatherCache(accounts.subscriber.subscriber_zip_code || "98052");
+			let stockData = await wtvc.getStockCache(ticker);
 			sendToClient(
 				socket,
 				headers,
-				renderToday(newsData, weatherData)
+				renderToday(newsData, weatherData, stockData)
 			);
 		})();
 		break;
