@@ -1,0 +1,4 @@
+From: Bridget Williams <parasquared@ParaTV>
+Subject: Welcome to ParaTV!
+
+Welcome! I assume you're here because you have a hankerin' to mess around with WebTV. Go nuts!
