@@ -256,19 +256,14 @@ class WTVCache {
 		let parser = new this.Parser();
 		// download and format data from the polygon.io API
 		try {
-			let stockfeed = await this.fetch("https://api.polygon.io/v2/aggs/" + ticker + "/prev?adjusted=true&apiKey=" + this.minisrv_config.config.stockApiKey)
+			let stockfeed = await this.fetch("https://api.polygon.io/v2/aggs/ticker/" + ticker + "/prev?adjusted=true&apiKey=" + this.minisrv_config.config.stockApiKey)
 			stockfeed = await stockfeed.json()
+			console.log(stockfeed)
 
-			stockCache.results = stockfeed.results.slice(0, 3).map(function (item) {
-				return {
-					// uhhhhh
-					ticker: item.ticker,
-					prices: item.results,
-					link: 'client:showalert?message=you are NOT trading stocks on WebTV'
-				};
-			});
+			stockCache.results = stockfeed.results;
+
 		} catch(e) {
-			stockCache = null;
+			stockfeed = null;
 			console.log(e)
 		}
 		stockCache.lastUpdated = Math.floor(Date.now() / 1000)
@@ -370,7 +365,7 @@ class WTVCache {
 		const cacheFile = './ServiceInfoCache/stock_' + ticker + '.json';
 		if (!this.fs.existsSync(cacheFile)) {
 			console.log(" * Stocks cache file for " + ticker + " doesn't exist, getting data")
-			await this.updateStockCache()
+			await this.updateStockCache(ticker)
 			stockCacheRaw = this.fs.readFileSync(cacheFile);
 			stockCache = JSON.parse(stockCacheRaw);
 		} else {

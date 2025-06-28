@@ -11,16 +11,13 @@ var wtvc = new WTVCache(minisrv_config);
 request_is_async = true; // Make us async
 
 function renderPage(stockData) {
-    // test function for stocks
-    var ticker = "AAPL";
-
 data = `
 <html>
 `;
 
 try {
     if (stockData.results != null) {
-        data += `<b><font color=#345463>&#128;</font>&nbsp;<p>${stockData.results[0].ticker}</p></b><br><spacer type=vertical height=18><p>${stockData.results[0].close_price}</p><br><br>`;
+        data += `<b><font color=#345463>&#128;</font>&nbsp;<p>${stockData.results[0].T}</p></b><br><spacer type=vertical height=18><p>${stockData.results[0].c}</p><br><br>`;
     } else {
         data += "Stock Quotes are temporarily unavailable.";
         console.log(" # Stock API is unavailable?");
@@ -30,7 +27,7 @@ try {
     console.log("An error occured with the stocks API: " + e)
 }
 
-data = `
+data += `
 </html>
 `;
 return data;
@@ -38,7 +35,9 @@ return data;
 
 (async () => {
     // Load the stock
-    let stockData = await wtvc.getStockCache();
+    // temporary hardcoding for testing
+    const ticker = "AAPL";
+    let stockData = await wtvc.getStockCache(ticker);
     sendToClient(
         socket,
         headers,
