@@ -166,7 +166,7 @@ Weather info is unavailable`;
 `;
 			try {
 				if (stockData.results != null) {
-					data += `<b><font color=#000000>${stockData.results[0].T}</font></b><br><font color=#000000>Closing price: $${stockData.results[0].c}</font></table>`;
+					data += `<br><b><font color=#000000>${stockData.results[0].T}</font></b><br><font color=#000000>$${stockData.results[0].c}</font><br><br><i><font size=-1 color=#000000>Prices of stocks reflect the value when the market is closed for the day.</font></i></table>`;
 				} else {
 					data += "<font size=-1 color=#000000>Stock quotes are unavailable.</font> </table>";
 					console.log(" # Stock API is unavailable?");
