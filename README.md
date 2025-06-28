@@ -13,6 +13,7 @@ This branch (`paratv`) has my own changes, mostly done for myself to assist with
 - Splash screen now uses the server name specified in the config (rather than WebTV Redialed being hardcoded)
 - Splash screen has no Plus text, even when on Plus hardware
 - Added in error handling for when there's no weather data, for example when you have no API key (currently very buggy/unfinished, but will prevent server-side errors)
+- Rudimentary implementation of grabbing stock data (currently only shows in WebTV Today, and can only show one hard-coded stock)
 
 ## Setup + running the service
 - Run `npm install` to install all dependencies.
