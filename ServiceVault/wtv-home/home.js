@@ -513,7 +513,7 @@ if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
 		<tr><td height=1>
 		<tr><td colspan=3 valign=middle align=center>
 		<spacer type=block width=10>
-		<a href=wtv-home:/Credits-Introduction><spacer type=block height=3><img src=wtv-home:/ROMCache/WebTVLogoJewel.gif width=111 height=87></a>
+		<a href=wtv-home:/Credits-Introduction><spacer type=block height=3><img src=wtv-home:/ROMCache/WebTVTransJewel.gif width=111 height=87></a>
 		</table>
 		<td width=128 height=100 valign=middle>
 		<table cellspacing=0 cellpadding=0 width=120 href=wtv-mail:/listmail transition=light selected insetselection>
@@ -896,7 +896,7 @@ if (gWeatherIndex != 2 || gNumCategories == 1) gWeatherTimeout = setTimeout(Rota
 <td height=7>
 <tr><td colspan=3 valign=top align=center>
 <spacer type=block width=6>
-<a href=wtv-home:/Credits-Introduction><spacer type=block height=3><img src=wtv-home:/ROMCache/WebTVLogoJewel.gif width=127 height=98></a>
+<a href=wtv-home:/Credits-Introduction><spacer type=block height=3><img src=wtv-home:/ROMCache/WebTVTransJewel.gif width=127 height=98></a>
 </table>
 <tr><td height=2 colspan=3 bgcolor=252834>
 <tr><td height=1 colspan=3>
@@ -1375,7 +1375,7 @@ gRemainderOfScriptLoaded = "true";
 <tr><td height=1>
 <tr><td colspan=3 valign=middle align=center>
 <spacer type=block width=10>
-<a href="wtv-home:/Credits-Introduction"><spacer type=block height=3><img src=wtv-home:/ROMCache/WebTVLogoJewel.gif width=111 height=87></a>
+<a href="wtv-home:/Credits-Introduction"><spacer type=block height=3><img src=wtv-home:/ROMCache/WebTVTransJewel.gif width=111 height=87></a>
 </table>
 <td width=104 height=100 valign=middle>
 <table cellspacing=0 cellpadding=0 width=104 href=wtv-mail:/listmail transition=light selected insetselection>
