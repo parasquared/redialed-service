@@ -32,6 +32,9 @@ data = `<html>
 <a href="wtv-client:/explain">client:GoToExplanationPage (to do: figure out)</a>
 <br>
 
+<a href="client:GoToInfoPage">client:GoToInfoPage (the page that 411 poweroff code shows)</a>
+<br>
+
 <a href="client:showalert?message=This will hang up the phone, will not show the Reconnect dialog, and disables most of the shortcut keys.<br><br>Use activ or BeginDialing at the top of the page to reconnect.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Okay&buttonAction2=client:HangUpPhone">client:HangUpPhone (!)</a>
 <br>
 
