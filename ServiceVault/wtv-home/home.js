@@ -69,7 +69,7 @@ if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
 		<tr><td height=7>
 		<tr><td width=10>
 		<td colspan=2 valign=top align=center>
-		<spacer type=block height=3><img src="file://ROM/Cache/WebTVLogoJewel.gif" width=127 height=98>
+		<spacer type=block height=3><img src="wtv-home:/ROMCache/WebTVTransJewel.gif" width=127 height=98>
 		</table>
 		<tr><td height=2 colspan=3 bgcolor=252834>
 		<spacer>
