@@ -98,11 +98,11 @@ if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
 		<spacer>
 		<tr><td abswidth=7>
 		<td abswidth=125 height=28>
-		<table cellspacing=0 cellpadding=0 href="${helpUrl}">
+		<table cellspacing=0 cellpadding=0 href="wtv-tricks:/switcher">
 		<tr><td height=4>
 		<tr><td valign=middle>
 		<table cellspacing=0 cellpadding=0>
-		<tr><td valign=middle><shadow><font size=2.5 color=E7D694>&nbsp;Using WebTV</font></shadow>
+		<tr><td valign=middle><shadow><font size=2.5 color=E7D694>&nbsp;Switcher</font></shadow>
 		</table>
 		<tr><td height=1>
 		</table>
@@ -918,11 +918,11 @@ if (gWeatherIndex != 2 || gNumCategories == 1) gWeatherTimeout = setTimeout(Rota
 <tr><td height=2 colspan=3 bgcolor=4d5573>
 <tr><td abswidth=7>
 <td abswidth=125 height=24>
-<table cellspacing=0 cellpadding=0 href="wtv-guide:/help">
+<table cellspacing=0 cellpadding=0 href="wtv-tricks:/switcher">
 <tr><td height=4>
 <tr><td valign=middle>
 <table cellspacing=0 cellpadding=0>
-<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Using WebTV</font></shadow>
+<tr><td valign=middle><shadow><font size=3 color=e7d694>&nbsp;Switcher</font></shadow>
 </table>
 <tr><td height=1>
 </table>
