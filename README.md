@@ -10,7 +10,6 @@ This branch (`paratv`) has my own changes, mostly done for myself to assist with
 - A new transgender-colored WebTV jewel on the home page thanks to SKCro
 - Adds `wtv-client:/client`, which includes a linked list of every client command I've tested, as well as what it does for the more dangerous commands (as well as some Plus diskmap-related stuff in `wtv-client:/plus`)
 - Link to `wtv-tricks:/switcher` on the home page
-- Splash screen now uses the server name specified in the config (rather than WebTV Redialed being hardcoded)
 - Splash screen has no Plus text, even when on Plus hardware
 - Added in error handling for when there's no weather data, for example when you have no API key (currently very buggy/unfinished, but will prevent server-side errors)
 - Rudimentary implementation of grabbing stock data (currently only shows in WebTV Today, and can only show one hard-coded stock)
