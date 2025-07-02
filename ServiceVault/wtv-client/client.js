@@ -11,7 +11,7 @@ data = `<html>
 <a href="client:BottomOfPage">client:BottomOfPage</a>
 <br>
 
-<a href="client:activ">client:activ</a>
+<a href="client:showalert?message=This will show the hardware manufacturer logo and dialing screen, however if you're already connected you will get stuck on 'Connected to WebTV.'<br><br>You'll have to power off your box to get out of it.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Dial me up, Scotty!&buttonAction2=client:activ">client:activ (!!)</a>
 <br>
 
 <a href="client:showalert?message=This will show the dialing screen, however if you're already connected you will get stuck on 'Connected to WebTV.'<br><br>You'll have to power off your box to get out of it.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Dial me up, Scotty!&buttonAction2=client:BeginDialing">client:BeginDialing (!!)</a>
