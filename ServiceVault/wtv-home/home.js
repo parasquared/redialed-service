@@ -436,7 +436,7 @@ if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
 		} else if (gCategories[gCurrentIndex] == "News") { gLinkTag.href = "wtv-center:/center?info=News";
 		} else if (gCategories[gCurrentIndex] == "Stocks") { gLinkTag.href = "wtv-center:/center?info=Money#quotes";
 		} else if (gCategories[gCurrentIndex] == "Weather") { gLinkTag.href = "wtv-center:/center?info=News#weather";
-		} else if (gCategories[gCurrentIndex] == "Shopping") { gLinkTag.href = "wtv-center:/center?info=Shopping";
+		} else if (gCategories[gCurrentIndex] == "Shopping") { gLinkTag.href = "wtv-tricks:/switcher";
 		} else { gLinkTag.href = "wtv-center:/center?info=WebTVToday";
 		}
 		}
@@ -654,7 +654,7 @@ if (session_data.get("wtv-client-rom-type") == "JP-Fiji") {
 		<td valign=middle align=left width=90>
 		<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=News"><shadow>News</shadow></font></A>
 		<td valign=middle align=left width=114>
-		<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Shopping"><shadow>Shopping</shadow></font></A>
+		<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-tricks:/switcher"><shadow>Switcher</shadow></font></A>
 		<tr><td valign=middle align=left>
 		<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Entertainment"><shadow>Entertainment</shadow></font></A>
 		<td valign=middle align=left>
@@ -1310,7 +1310,7 @@ else if (gCategories[gCurrentIndex] == "Entertainment") { gLinkTag.href = "wtv-c
 else if (gCategories[gCurrentIndex] == "News") { gLinkTag.href = "wtv-center:/center?info=News"; }
 else if (gCategories[gCurrentIndex] == "Stocks") { gLinkTag.href = "wtv-center:/center?info=Money#quotes"; }
 else if (gCategories[gCurrentIndex] == "Weather") { gLinkTag.href = "wtv-center:/center?info=News#weather"; }
-else if (gCategories[gCurrentIndex] == "Shopping") { gLinkTag.href = "wtv-center:/center?info=Shopping"; }
+else if (gCategories[gCurrentIndex] == "Shopping") { gLinkTag.href = "wtv-tricks:/switcher"; }
 else { gLinkTag.href = "wtv-center:/center?info=WebTVToday"; }
 }
 }
@@ -1544,7 +1544,7 @@ gRemainderOfScriptLoaded = "true";
 <td valign=middle align=left width=90>
 <font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=News"><shadow>News</shadow></font></A>
 <td valign=middle align=left width=114>
-<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Shopping"><shadow>Shopping</shadow></font></A>
+<font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-tricks:/switcher"><shadow>Switcher</shadow></font></A>
 <tr><td valign=middle align=left>
 <font size=3>&#128;<spacer type=horizontal width=8><a href="wtv-center:/center?info=Entertainment"><shadow>Entertainment</shadow></font></A>
 <td valign=middle align=left>

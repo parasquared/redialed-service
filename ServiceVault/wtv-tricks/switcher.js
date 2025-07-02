@@ -87,7 +87,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 		srv = document.connect.preset[document.connect.preset.selectedIndex].value;
 		switch (srv) {
 				case "noneofem":
-					document.connect.machine.value="x.x.x.x"
+					document.connect.machine.value=""
                     document.connect.port.value="1615"
 					document.message.msg.value="Choose a WebTV server to connect to."
 					break;
@@ -166,7 +166,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
                   &nbsp;Custom:&nbsp;&nbsp;&nbsp;
                <td>
                   Address:
-                  <input size=16 ASCIIONLY name=machine bgcolor=#444444 text=#cc9933 cursor=#cc9933 value="x.x.x.x" onkeypress="setOther()">
+                  <input size=16 ASCIIONLY name=machine bgcolor=#444444 text=#cc9933 cursor=#cc9933 value="" onkeypress="setOther()">
                   &nbsp;&nbsp;&nbsp;Port:
                   <input size=5 ASCIIONLY NUMBERS name=port bgcolor=#444444 text=#cc9933 cursor=#cc9933 value="1615" onkeypress="setOther()">
          </table>
