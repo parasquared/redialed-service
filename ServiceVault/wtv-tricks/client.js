@@ -29,6 +29,9 @@ data = `<html>
 <a href="client:GoBack">client:GoBack</a>
 <br>
 
+<a href="client:GoHome">client:GoHome</a>
+<br>
+
 <a href="wtv-client:/explain">client:GoToExplanationPage (to do: figure out)</a>
 <br>
 

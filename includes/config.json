@@ -302,9 +302,6 @@
       "connections": 3,
       "flags": "0x00000001"
     },
-    "wtv-client": {
-	  "port": 1616
-    },
     "pc_services": {
       "port": 1337,
       "pc_services": true,
