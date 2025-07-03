@@ -80,6 +80,9 @@ putting the URL in the Go to panel causes it to give an error, but still saves p
 <a href="client:SaveToFavorite">client:SaveToFavorite (shows animation but does nothing)</a>
 <br>
 
+<a href="client:setleds?power=off&connected=on&message=off">client:setleds (connected)</a>
+<br>
+
 <a href="client:ShowCrashLog">client:ShowCrashLog (only works on internal builds?)</a>
 <br>
 
