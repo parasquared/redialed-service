@@ -8,7 +8,7 @@ This branch (`paratv`) has my own changes, mostly done for myself to assist with
   
 ## Changes from main
 - A new transgender-colored WebTV jewel on the home page thanks to SKCro
-- Adds `wtv-client:/client`, which includes a linked list of every client command I've tested, as well as what it does for the more dangerous commands (as well as some Plus diskmap-related stuff in `wtv-client:/plus`)
+- Adds `wtv-tricks:/client`, which includes a linked list of every client command I've tested, as well as what it does for the more dangerous commands (as well as some Plus diskmap-related stuff at `wtv-tricks:/client-plus`, and pages for error explanations at `wtv-tricks:/client-explanation`)
 - Link to `wtv-tricks:/switcher` on the home page
 - Splash screen has no Plus text, even when on Plus hardware
 - Added in error handling for when there's no weather data, for example when you have no API key (currently very buggy/unfinished, but will prevent server-side errors)
