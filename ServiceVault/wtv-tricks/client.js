@@ -6,7 +6,7 @@ Content-Type: text/html`;
 
 data = `<html>
 <title>Client Commands</title>
-<!-- most of these were tested on a Philips Old Plus MAT972, running client 2.5 Internal / build 7183. information about commands may be incorrect/irrelevant on other hardware models/client builds -->
+<!-- most of these were tested on a Philips MAT972 Old Plus, running client 2.5 Internal / build 7183, unless stated otherwise. information about commands may be incorrect/irrelevant on other hardware models/client builds -->
 
 <a href="client:BottomOfPage">client:BottomOfPage</a>
 <br>
@@ -114,6 +114,7 @@ putting the URL in the Go to panel causes it to give an error, but still saves p
 <a href="client:TogglePIP">client:TogglePIP (does nothing?)</a>
 <br>
 
+<!-- next two were tested on an (emulated) Philips Old Classic MAT960 unit running client 1.4.2.2 Internal-Ndbg / build 1238 -->
 <a href="client:TriggerFlashDownload">client:TriggerFlashDownload (triggers update, only on Old Classic hardware)
 <br>
 
@@ -124,7 +125,7 @@ putting the URL in the Go to panel causes it to give an error, but still saves p
 <a href="client:showalert?message=This will disconnect, redial, and go through the whole connection process. It may also override your server and connect to whatever the default in your route settings is.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Yeah, I'm a switch(er)&buttonAction2=client:UnpluggedAndMoved">client:UnpluggedAndMoved (!!)
 <br>
 
-<a href="client:vfathax">client:vfathax (only works on internal builds?)</a>
+<a href="client:vfathax">client:vfathax (only works on internal builds/Old Plus?)</a>
 <br>
 
 <a href="client:TopOfPage">client:TopOfPage</a>
