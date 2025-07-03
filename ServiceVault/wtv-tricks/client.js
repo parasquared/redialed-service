@@ -32,7 +32,7 @@ data = `<html>
 <a href="client:GoHome">client:GoHome</a>
 <br>
 
-<a href="wtv-client:/explain">client:GoToExplanationPage (to do: figure out)</a>
+<a href="wtv-tricks:/client-explain">client:GoToExplanationPage (to do: figure out)</a>
 <br>
 
 <a href="client:GoToInfoPage">client:GoToInfoPage (411 poweroff code page)</a>
