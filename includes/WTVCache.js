@@ -288,47 +288,47 @@ class WTVCache {
 			// check if (and how) we should be downloading new data
 			if (newsCache.lastUpdated + 86400 <= now) {
 				// news is unreasonably outdated (1+ day old), so force the user to wait while we update it
-				console.log(" * News is over a day old, forcing the user to wait while we download the latest headlines")
+				console.log(" * News is over a day old, forcing the user to wait while we download the latest headlines");
 				await this.updateNewsCache();
 				newsCacheRaw = this.fs.readFileSync(cacheFile);
-				newsCache = JSON.parse(newsCacheRaw)
+				newsCache = JSON.parse(newsCacheRaw);
 			} else if (newsCache.lastUpdated + 3600 <= now) {
 				// news is only slightly outdated (1-23 hours old), so treat the update as a background function (no async)
-				console.log(" * News has passed its shelf life, downloading new info in the background")
+				console.log(" * News has passed its shelf life, downloading new info in the background");
 				this.updateNewsCache();
 			}
+			// data is good to send to the user
+			return newsCache;
+		} catch {
+			// something has gone terribly wrong (the cache file was probably nuked somehow), redo everything from scratch to give us a fresh start
+			await this.updateNewsCache();
+			const newsCacheRaw = this.fs.readFileSync('./ServiceInfoCache/newsCache.json');
+			return JSON.parse(newsCacheRaw);
 		}
-		// data is good to send to the user
-        return newsCache;
-    }
+	}
 	
 	async getReleaseCache() {
-		// check if it exists, get new cache if it doesn't
-		const cacheFile = './ServiceInfoCache/releasesCache.json'
-		if (!this.fs.existsSync(cacheFile)) {
-			console.log(" * Release cache file doesn't exist, getting release data")
-			await this.updateReleaseCache()
-			releaseCacheRaw = this.fs.readFileSync(cacheFile);
-			releaseCache = JSON.parse(releaseCacheRaw)
-		} else {
+		try {
 			// load the file from disk
 			var releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
-			var releaseCache = JSON.parse(releaseCacheRaw)
-			const now = Math.floor(Date.now() / 1000)
+			var releaseCache = JSON.parse(releaseCacheRaw);
+			const now = Math.floor(Date.now() / 1000);
 			// check if (and how) we should be downloading new data
 			if (releaseCache.lastUpdated + 604800 <= now) {
 				// release info is unreasonably outdated (1+ week old), so force the user to wait while we update it
-				console.log(" * Release info is over a week old, forcing the user to wait while we download the latest info")
+				console.log(" * Release info is over a week old, forcing the user to wait while we download the latest info");
 				await this.updateReleaseCache();
 				releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
-				releaseCache = JSON.parse(releaseCacheRaw)
+				releaseCache = JSON.parse(releaseCacheRaw);
 			} else if (releaseCache.lastUpdated + 86400 <= now) {
 				// release info is only slightly outdated (1-7 days old), so treat the update as a background function (no async)
-				console.log(" * Release info has passed its shelf life, downloading new info in the background")
-				this.updateReleaseCache();
+				console.log(" * Release info has passed its shelf life, downloading new info in the background");
+			} catch {
+				// something has gone terribly wrong (the cache file was probably nuked somehow), redo everything from scratch to give us a fresh start
+				await this.updateReleaseCache();
+				const releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
+				return JSON.parse(releaseCacheRaw);
 			}
-			// data is good to send to the user
-			return releaseCache;
 		}
 	}
 	
@@ -336,18 +336,18 @@ class WTVCache {
 		try {
 			// for this cache in particular we use individual files, to avoid loading a (potentially large) chunk of useless data every time
 			var weatherCacheRaw = this.fs.readFileSync('./ServiceInfoCache/weather_' + zip + '.json');
-			var weatherCache = JSON.parse(weatherCacheRaw)
-			const now = Math.floor(Date.now() / 1000)
+			var weatherCache = JSON.parse(weatherCacheRaw);
+			const now = Math.floor(Date.now() / 1000);
 			// check if (and how) we should be downloading new data
 			if (weatherCache.lastUpdated + 3600 <= now) {
 				// weather is unreasonably outdated (1+ hour old), so force the user to wait while we update it
-				console.log(" * Weather is over an hour old, forcing the user to wait while we download the forecasts")
+				console.log(" * Weather is over an hour old, forcing the user to wait while we download the forecasts");
 				await this.updateWeatherCache(zip);
 				weatherCacheRaw = this.fs.readFileSync('./ServiceInfoCache/weather_' + zip + '.json');
-				weatherCache = JSON.parse(weatherCacheRaw)
+				weatherCache = JSON.parse(weatherCacheRaw);
 			} else if (weatherCache.lastUpdated + 1800 <= now) {
 				// weather is only slightly outdated (30-60 minutes old), so treat the update as a background function (no async)
-				console.log(" * Weather has passed its shelf life, downloading new info in the background")
+				console.log(" * Weather has passed its shelf life, downloading new info in the background");
 				this.updateWeatherCache(zip);
 			}
 			// data is good to send to the user
@@ -356,7 +356,7 @@ class WTVCache {
 			// something has gone terribly wrong (probably a new ZIP code), redo everything from scratch to give us a fresh start
 			await this.updateWeatherCache(zip);
 			const weatherCacheRaw = this.fs.readFileSync('./ServiceInfoCache/weather_' + zip + '.json');
-			return JSON.parse(weatherCacheRaw)
+			return JSON.parse(weatherCacheRaw);
 		}
     }
 
@@ -383,7 +383,6 @@ class WTVCache {
 		// data is good to send to the user
 		return stockCache;
 	}
-
 }
 
 module.exports = WTVCache;
