@@ -62,10 +62,10 @@ data += `
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
 /* the code below is only currently known to be present on post 1999 webtv
  if (!session_data.hasCap('client-has-tv-experie*nce')) { data += `<font color=666666 size=0>TM</font>` } */
-if (splashImage != 'images/SplashLogo1MSN.gif') {
-	// determine gamer level
-	if (session_data.hasCap('client-has-tuner')) data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
-}
+// if (splashImage != 'images/SplashLogo1MSN.gif') {
+// 	// determine gamer level
+// 	if (session_data.hasCap('client-has-tuner')) data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
+// }
 
 if (debug) {
 	const process = require('process');
