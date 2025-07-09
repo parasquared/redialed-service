@@ -272,19 +272,12 @@ class WTVCache {
 		return true
 	}
 
-    async getNewsCache() {
-		// check if it exists, get new cache if it doesn't
-		const cacheFile = './ServiceInfoCache/newsCache.json';
-		if (!this.fs.existsSync(cacheFile)) {
-			console.log(" * News cache file doesn't exist, getting news data")
-			await this.updateNewsCache()
-			newsCacheRaw = this.fs.readFileSync(cacheFile);
-			newsCache = JSON.parse(newsCacheRaw);
-		} else {
-			// load the file from disk
-        	var newsCacheRaw = this.fs.readFileSync(cacheFile);
-			var newsCache = JSON.parse(newsCacheRaw)
-			const now = Math.floor(Date.now() / 1000)
+	async getNewsCache() {
+		try {
+			const cacheFile = './ServiceInfoCache/newsCache.json';
+			var newsCacheRaw = this.fs.readFileSync(cacheFile);
+			var newsCache = JSON.parse(newsCacheRaw);
+			const now = Math.floor(Date.now() / 1000);
 			// check if (and how) we should be downloading new data
 			if (newsCache.lastUpdated + 86400 <= now) {
 				// news is unreasonably outdated (1+ day old), so force the user to wait while we update it
@@ -323,12 +316,15 @@ class WTVCache {
 			} else if (releaseCache.lastUpdated + 86400 <= now) {
 				// release info is only slightly outdated (1-7 days old), so treat the update as a background function (no async)
 				console.log(" * Release info has passed its shelf life, downloading new info in the background");
-			} catch {
-				// something has gone terribly wrong (the cache file was probably nuked somehow), redo everything from scratch to give us a fresh start
-				await this.updateReleaseCache();
-				const releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
-				return JSON.parse(releaseCacheRaw);
+				this.updateReleaseCache();
 			}
+			// data is good to send to the user
+			return releaseCache;
+		} catch {
+			// something has gone terribly wrong (the cache file was probably nuked somehow), redo everything from scratch to give us a fresh start
+			await this.updateReleaseCache();
+			const releaseCacheRaw = this.fs.readFileSync('./ServiceInfoCache/releasesCache.json');
+			return JSON.parse(releaseCacheRaw);
 		}
 	}
 	
