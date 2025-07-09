@@ -20,7 +20,7 @@ This branch (`paratv`) has my own changes, mostly done for myself to assist with
 - Try running `npm run start17` or the start scripts.
 
 ## Notes for service configuration 
-`includes/config.json` is the default configuration file that applies to *all* instances. `user_config.json` should contain configuration options specific to your instance and enviornment. If you wish to change the server's configuration from the defaults, please put your configuration changes in `user_config.json`. The file should be created in the root directory of this repository, and will be ignored by Git. We do this as to not have enviornment-specific and potentially sensitive configuration options (API keys, Tricks passwords, etc) exposed in a public repo.
+`includes/config.json` is the default configuration file that applies to *all* instances. `user_config.json` should contain configuration options specific to your instance and environment. If you wish to change the server's configuration from the defaults, please put your configuration changes in `user_config.json`. The file should be created in the root directory of this repository, and will be ignored by Git. We do this as to not have environment-specific and potentially sensitive configuration options (API keys, Tricks passwords, etc) exposed in a public repo.
 
 Please make sure of the following:
 - Service IP is correct and the service can be accessed from it
