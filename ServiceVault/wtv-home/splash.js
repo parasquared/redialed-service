@@ -51,19 +51,18 @@ else if (isJune) { splashBackground = ' background=images/SplashPrideBG.gif' }
 else if (isCrimmis) { splashBackground = ' background=images/SplashChristmasBG.gif' }
 
 data = `<html><title>${service_name == 'wtv-home' ? `WebTV${session_data.hasCap('client-has-tv-experience') ? ' Plus' : ''} Service` : `Splash`}</title>
-<meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') && !isHall == 1 ? '0' : '4'};URL=wtv-home:/home?">`
+<meta http-equiv=refresh content="${session_data.getSessionData('fast_splash') == 1 && !isHall ? '0' : '4'};URL=wtv-home:/home?">`
 if (service_name == 'wtv-home') data += `\n<link rel=next href=wtv-content:/ROMCache/BackgroundWebTVToday_a.swf>`;
 data += `
-<bgsound src=${isHall ? 'wtv-home:/content/polyzoot-stinger.mid' : 'file://ROM/Sounds/Splash.mid'}><body bgcolor=0 text=449944><display nooptions nostatus skipback switchtowebmode vspace=0 hspace=0>
+<body bgcolor=0 text=449944><bgsound src=${isHall ? 'wtv-home:/content/polyzoot-stinger.mid' : 'file://ROM/Sounds/Splash.mid'}><display nostatus nooptions skipback switchtowebmode vspace=0 hspace=0>
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-home:/home? nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 //Table with splash image
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle${splashBackground}><img src=${splashImage}></td></tr></table>`;
 /* the code below is only currently known to be present on post 1999 webtv
  if (!session_data.hasCap('client-has-tv-experie*nce')) { data += `<font color=666666 size=0>TM</font>` } */
-
 // if (splashImage != 'images/SplashLogo1MSN.gif' && session_data.hasCap('client-has-tuner')) {
-// 	// determine gamer level
-// 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
+// 	 determine gamer level
+// 	 data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
 // }
 
 if (debug) {
