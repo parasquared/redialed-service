@@ -1522,7 +1522,7 @@ Weather info is unavailable`;
 </table>
 </font>
 <tr><td HEIGHT=46 align=right valign=MIDDLE>
-<font size=-1 color=#4A3121>&#128; </font><a href=http://www.msnbc.com/news/SPT_Front.asp?a><font size=-1 color=#4A3121><b>more headlines at MSNBC</b></font></a>
+<font size=-1 color=#4A3121>&#128; </font><a href=http:/deadspin.com><font size=-1 color=#4A3121><b>more headlines at Deadspin</b></font></a>
 <tr><td height=5>
 </table>
 <td bgcolor=#9C9C8C>
