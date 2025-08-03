@@ -185,15 +185,15 @@
       "port": 1615,
       "connections": 1,
       "flags": "0x00000004",
-      "send_tellyscripts": false,
+      "send_tellyscripts": true,
       "privileged": true
     },
     "wtv-flashrom": {
       "port": 1618,
       "flags": "0x00000040",
       "debug": false,
-      "use_zefie_server": false,
-      "bf0app_default_rom": "content/artemis-webtv-000/build1235/external-nondebug/bf0app-part000.rom",
+      "use_zefie_server": true,
+      "bf0app_default_rom": "content/artemis-webtv-000/build1238/internal-nondebug/bf0app-part000.rom",
       "catchall_file_name": "content-serve.js",
       "privileged": true
     },
