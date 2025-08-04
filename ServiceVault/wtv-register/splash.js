@@ -14,9 +14,11 @@ data = `<html><title>Splash</title>
 <table width=100% height=100% cellspacing=0 cellpadding=12 href=wtv-register:/register nohighlight nocursor selected><tr><td align=center valign=${debug ? 'bottom' : 'middle'}>`;
 //Table with splash image
 data += `<table cellspacing=0 cellpadding=0><tr><td align=center valign=middle><img src=${wtvrsvc_config.config.service_splash_logo}></td></tr></table>`;
-if (session_data.hasCap('client-has-tuner')) { // determine gamer level
-	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
-}
+
+// fuck the plus text
+// if (session_data.hasCap('client-has-tuner')) { // determine gamer level
+// 	data += `<br><br><img src=ROMCache/plus.gif width=232 height=21>`;
+// }
 
 if (debug) {
 	const process = require('process');
@@ -25,7 +27,7 @@ if (debug) {
 	data += `
 	</tr></td><tr><td align=center valign=top height=128>
 	<table bgcolor=191919 gradcolor=080808 border cellpadding=1 cellspacing=0>
-	<tr><td align=center colspan=2><blackface><b><shadow>${wtvrsvc_version_string}</shadow></b></blackface></td></tr>
+	<tr><td align=center colspan=2><blackface><b><shadow>${wtvrsvc_config.config.service_name}</shadow></b></blackface></td></tr>
 	<tr><td><shadow><b>Node:</b></shadow></td><td><shadow>${process.version}</shadow></td></tr>
 	<tr><td><shadow><b>OS:</b></shadow></td><td><shadow>${os.type()} ${os.release()} (${os.arch()})</shadow></td></tr>
 	<tr><td><shadow><b>CPU:</b></shadow></td><td><shadow>${cpus.length}x ${cpus[0].model}</shadow></td></tr>
