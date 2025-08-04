@@ -71,10 +71,4 @@ if (debug || request_headers.query.show_debug_splash) {
 	</table>
 	</td></tr></table>
 	</html>`;
-<<<<<<< HEAD
 } else { data += `</td></tr></table></html>`; }
-=======
-} else {
-	data += `</td></tr></table></html>`;
-}
->>>>>>> origin/main
