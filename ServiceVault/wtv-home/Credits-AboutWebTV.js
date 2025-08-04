@@ -10,7 +10,7 @@ var altocomCreds = "";
 
 if (session_data.hasCap("client-has-softmodem")) {
     altocomCreds = `<p>
-56k softmodem supplied by <a href="http://theoldnet.com/get?url=altocom.com&year=2000&scripts=false&decode=true">AltoCom, Inc.</a>
+56k softmodem supplied by <a href="http://theoldnet.com/get?url=altocom.com&year=1998&scripts=false&decode=true">AltoCom, Inc.</a>
 </p>
 <p>
 <center>
@@ -53,7 +53,8 @@ are provided by <a href="proto://www.webtv.net" selected>WebTV Networks, Inc.</a
 ${altocomCreds}`;
 }
 
-data = nunjucks.render('ServiceDeps/templates/wtv-home/credits.njk', { title: "About WebTV", display: "noscroll", body: `<td WIDTH=532 HEIGHT=236 VALIGN=top ALIGN=left>
+data = nunjucks.render('ServiceDeps/templates/wtv-home/credits.njk', { title: "About ParaTV", display: "noscroll", body: `<td WIDTH=532 HEIGHT=236 VALIGN=top ALIGN=left>
 <p>${providedBy}
+<p>ParaTV is a fork of WebTV Redialed, both based on zefie's minisrv and licensed under the <a href="https://raw.githubusercontent.com/parasquared/redialed-service/refs/heads/paratv/LICENSE">GNU GPL version 3</a>.
 <p>See who else made this happen <a href="https://webtv.zone/info/credits.html">here</a>.
 </tr></td>`, isJapaneseClient: session_data.isJapaneseClient(), randomAssSpace: true});

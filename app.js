@@ -2938,8 +2938,8 @@ wtvrsvc_config = wtvshared.getWTVRSvcConfig(); // snatches wtvrsvc_config
 
 const debugmode = wtvrsvc_config.config.serviceType == 'Debug';
 const { version } = require('./package.json');
-const z_title = `WebTV Redialed v${version}${debugmode ? ' (Debug)' : ''}`;
-console.log(`**** Welcome to ${z_title} ****`);
+const z_title = `WebTV Redialed v${version}`;
+console.log(`**** Welcome to ${z_title}${debugmode ? ' (Debug)' : ''} ****`);
 
 wtvrsvc_config = wtvshared.getWTVRSvcConfig(); // snatches wtvrsvc_config
 const wtvmime = new WTVMime(wtvrsvc_config);
