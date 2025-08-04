@@ -1,12 +1,12 @@
 class WTVCache {
-    minisrv_config = [];
+    wtvrsvc_config = [];
     type = null;
 	fs = require("fs");
 	Parser = require("rss-parser");
 	fetch = require("node-fetch");
 
-    constructor(minisrv_config = null) {
-        this.minisrv_config = minisrv_config;
+    constructor(wtvrsvc_config = null) {
+        this.wtvrsvc_config = wtvrsvc_config;
     }
 	
 	makeFriendlyString(string) {
@@ -74,7 +74,7 @@ class WTVCache {
 		try { 
 			let theaterfeed = await this.fetch("https://api.themoviedb.org/3/movie/now_playing", {
 				headers: {
-					'Authorization': 'Bearer ' + this.minisrv_config.config.movieApiKey
+					'Authorization': 'Bearer ' + this.wtvrsvc_config.config.movieApiKey
 				}
 			})
 			theaterfeed = await theaterfeed.json()

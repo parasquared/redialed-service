@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var camefrom = request_headers.query.camefrom;
 var action = request_headers.query.action;
 
@@ -7,6 +7,20 @@ address_book = session_data.getSessionData("address_book")
 if (address_book == null) {
 	session_data.setSessionData("address_book", [])
 	address_book = [];
+}
+
+// stupid hack because address book emails are stored differently
+// TODO: not that
+var migrated = false;
+address_book.forEach(user => {
+	if (user.address.split("@")[1] === "WebTV") {
+		user.address = user.address.split("@")[0] + "@webtv.zone";
+		migrated = true;
+	}
+});
+
+if (migrated) {
+	session_data.setSessionData("address_book", address_book);
 }
 
 if (!camefrom && !action) {
@@ -176,7 +190,7 @@ E-mail addresses for ${session_data.getSessionData("subscriber_username")}
 <tr absheight=26>
 <td rowspan=1000 abswidth=8>
 <td colspan=3>
-Your address is ${session_data.getSessionData("subscriber_username")}@WebTV
+Your address is ${session_data.getSessionData("subscriber_username")}@webtv.zone
 <tr absheight=8>
 <td colspan=3>
 <img src="wtv-home:/ROMCache/Spacer.gif" width=1 height=8>
@@ -702,7 +716,7 @@ ${(!newaddress) ? `<input type=hidden name="id" value="${request_headers.query.i
 			var addrExists = false;
 			// dumbass protection for making addresses look proper in the list
 			var address = request_headers.query.address.split("@")[0];
-			address += "@WebTV";
+			address += "@webtv.zone";
 			// sanity checks to make sure the user doesn't have duplicate names/addresses
 			address_book.forEach(user => {
 				if (user.name.includes(request_headers.query.nickname)) {
@@ -745,7 +759,7 @@ Location: wtv-mail:/addressbook`;
 			}
 			// dumbass protection for making addresses look proper in the list
 			address = address.split("@")[0];
-			address += "@WebTV";
+			address += "@webtv.zone";
 			var nameExists = false;
 			var addrExists = false;
 			if (address_book.length > 1) {

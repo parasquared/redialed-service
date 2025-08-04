@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
@@ -9,6 +9,6 @@ const termsOfServiceContent = fs.readFileSync(
     {encoding: "utf8", flag: "r"}
 );
 
-nunjucks.configure({ autoescape: false });
+
 
 data = nunjucks.render('ServiceDeps/templates/wtv-home/termsPrivacy.njk', { title: "WebTV Terms of Service", body: termsOfServiceContent, isJapaneseClient: session_data.isJapaneseClient()});

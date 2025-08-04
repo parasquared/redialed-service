@@ -1,10 +1,10 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 headers = `200 OK
 Connection: Keep-Alive
 Content-Type: text/html`;
 
-nunjucks.configure({ autoescape: false });
+
 
 var altocomCreds = "";
 

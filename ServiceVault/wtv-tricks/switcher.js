@@ -1,4 +1,4 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 
 if (request_headers.query.machine && request_headers.query.port) {
 	headers = `200 OK
@@ -71,7 +71,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 	  function doConnect() {
 	    if (document.connect.preset.value == "noneofem") {
             	alert("Please choose a WebTV server to connect to.")
-		} else if (document.connect.machine.value == "${minisrv_config.services['wtv-1800'].host}" && document.connect.port.value == "${minisrv_config.services['wtv-1800'].port}") {
+		} else if (document.connect.machine.value == "${wtvrsvc_config.services['wtv-1800'].host}" && document.connect.port.value == "${wtvrsvc_config.services['wtv-1800'].port}") {
 				alert("Mate, you're already here.");
 		} else {
 			document.connect.submit();
@@ -139,7 +139,7 @@ hspace="0" vspace="0" fontsize="large" noscroll>
 						<option value="redialed">WebTV Redialed</option>
 						<option value="mattman69">MattMan69's HackTV minisrv</option>
 						<option value="zefie">zefie's minisrv</option>
-						<option value="local">Your local minisrv</option>
+						<option value="local">Your local server</option>
 						<option value="wni-prod">WebTV Production Default</option>
 						<option value="wni-int">WebTV Internal Default</option>
 						<option value="other">Other</option>

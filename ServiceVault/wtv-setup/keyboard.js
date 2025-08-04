@@ -1,8 +1,8 @@
-var minisrv_service_file = true;
+var wtvrsvc_service_file = true;
 var settings_obj = session_data.getSessionData("wtv-setup");
 if (settings_obj === null) settings_obj = {};
 
-nunjucks.configure({ autoescape: false });
+
 
 headers = `200 OK
 Connection: Keep-Alive
