@@ -63,7 +63,7 @@ if (debug || request_headers.query.show_debug_splash) {
 	data += `
 	</tr></td><tr><td align=center valign=top height=128>
 	<table bgcolor=191919 gradcolor=080808 border cellpadding=1 cellspacing=0>
-	<tr><td align=center colspan=2><blackface><b><shadow>${wtvrsvc_config.config.service_name}<br>(based on ${wtvrsvc_version_string})</shadow></b></blackface></td></tr>
+	<tr><td align=center colspan=2><blackface><b><shadow>${wtvrsvc_config.config.service_name}</shadow></b></blackface></td></tr>
 	<tr><td><shadow><b>Node:</b></shadow></td><td><shadow>${process.version}</shadow></td></tr>
 	<tr><td><shadow><b>OS:</b></shadow></td><td><shadow>${os.type()} ${os.release()} (${os.arch()})</shadow></td></tr>
 	<tr><td><shadow><b>CPU:</b></shadow></td><td><shadow>${cpus.length}x ${cpus[0].model}</shadow></td></tr>
