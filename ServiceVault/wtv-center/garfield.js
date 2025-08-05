@@ -1,3 +1,5 @@
+// originally created by amrd24 on github, code cleanup by parasquared
+
 var wtvrsvc_service_file = true;
 
 if(typeof request_headers.query.exists == 'undefined'){
