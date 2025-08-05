@@ -193,13 +193,13 @@ class WTVCache {
 		var weatherCache = new Object();
 		// download and format data from The Weather Channel's API
 		// i apologize in advance for my really bad "error handling"
-		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+		var weather = await fetch("https://api.weather.com/v3/wx/observations/current?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.wtvrsvc_config.config.weatherApiKey)
 		weather = await weather.json()
 		try { weatherCache.temp = weather.temperature } catch { weatherCache.temp = 69; }
         try { weatherCache.humid = weather.relativeHumidity } catch { weatherCache.humid = 4; }
         try { weatherCache.icon = twcIcons[weather.iconCode] } catch { weatherCache.icon = twcIcons[1]; }
         try { weatherCache.cond = weather.wxPhraseMedium.toLowerCase() } catch { weatherCache.cond = "No weather data"}
-		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.minisrv_config.config.weatherApiKey)
+		var forecast = await fetch("https://api.weather.com/v3/wx/forecast/daily/7day?postalKey=" + zip +":US&units=e&language=en-US&format=json&apiKey=" + this.wtvrsvc_config.config.weatherApiKey)
 		forecast = await forecast.json()
 		let dayIcons = {};
 
@@ -256,7 +256,7 @@ class WTVCache {
 		let parser = new this.Parser();
 		// download and format data from the polygon.io API
 		try {
-			let stockfeed = await this.fetch("https://api.polygon.io/v2/aggs/ticker/" + ticker + "/prev?adjusted=true&apiKey=" + this.minisrv_config.config.stockApiKey)
+			let stockfeed = await this.fetch("https://api.polygon.io/v2/aggs/ticker/" + ticker + "/prev?adjusted=true&apiKey=" + this.wtvrsvc_config.config.stockApiKey)
 			stockfeed = await stockfeed.json()
 			console.log(stockfeed)
 
