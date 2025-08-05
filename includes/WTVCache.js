@@ -372,7 +372,7 @@ class WTVCache {
 			// check if (and how) we should be downloading new data
 			if (stockCache.lastUpdated + 86400 <= now) {
 				// stocks are outdated (1 day old, the stocks aren't in realtime with the free plan), update in the background
-				console.log(" * Stock " + ticker + " has passed its shelf life, downloading new info in the background")
+				console.log(" * Stock " + ticker + " is over a day old, downloading new info in the background")
 				this.updateStockCache();
 			}
 		}

@@ -101,7 +101,7 @@ const theShit = [
     { name: "Server Switchinator", url: `wtv-tricks:/switcher` },
     { name: "Blast Backlist", url: `wtv-tricks:/blastbacklist` },
     { name: "Blast NVRAM", url: `client:ResetNVAndPowerOff`, highOnly: true },
-    { name: "Smart Card Factory", url: `wtv-smartcard:/content/scf.html` },
+    { name: "Smart Card Factory", url: `wtv-smartcard:/content/index.html` },
     { name: "Unregister This Box", url: `client:showalert?message=You%20are%20about%20to%20%3Cb%3Eunregister%20this%20box.%3C%2Fb%3E%3Cp%3E%0AThe%20next%20person%20to%20use%20this%20box%20will%20have%20to%20sign%20up.&buttonLabel1=Cancel&buttonAction1=client:donothing&buttonLabel2=Unregister&buttonAction2=wtv-head-waiter:/unregister`, highOnly: true },
     { name: "Get Debuggin'!", url: `wtv-tricks:/debugging?password=${wtvt.getPasswordByType("high")}`, highOnly: true },
     { name: "Stayin' Alive", url: `wtv-tricks:/stayconnected` },
