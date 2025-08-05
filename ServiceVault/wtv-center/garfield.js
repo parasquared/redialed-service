@@ -82,13 +82,16 @@ Garfield
 </table>
 </body>
 </html>`;
-}else{
+} else {
+
+// required for newer sunday comics
 if (request_headers.query.sunday){
 ext = '.jpg'
-}else{
+} else {
 ext = '.gif'
 }
 
+// add a zero in front of single-digit months/days (required for the urls)
 if (request_headers.query.month.length < 2) {
     month = "0" + request_headers.query.month
 } else if (request_headers.query.month.length = 2){

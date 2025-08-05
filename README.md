@@ -1,10 +1,11 @@
 # WebTV Redialed / ParaTV
 This is a replacement service for WebTV/MSN TV (1st generation) clients, originally based on zefie's [minisrv](https://github.com/zefie/zefie_wtvp_minisrv) project. **This software is provided AS IS, with NO WARRANTY.**
 
-This branch (`paratv`) has my own changes, mostly done for myself to assist with messing around with the WebTV hardware and service. No help will be provided in trying to get this branch to run, nor the original Redialed codebase.
+This branch (`paratv`) has my own changes, mostly done for myself to assist with messing around with the WebTV hardware and service. No help will be provided in trying to get this fork to run, nor the original Redialed codebase.
 
 ## Acknowledgements
 - [SKCro](https://github.com/SKCro/) for creating the transgender WebTV jewel for this fork
+- [Nova](https://github.com/amrd24) for creating the Garfield comic reader
   
 ## Changes from main
 - Transgender-themed WebTV jewel on the home page, made by SKCro
@@ -13,6 +14,7 @@ This branch (`paratv`) has my own changes, mostly done for myself to assist with
 - Splash screen has no Plus text, even when on Plus hardware
 - Add in error handling for when there's no weather data, for example when you have no API key (currently very buggy/unfinished, but will prevent server-side errors)
 - Rudimentary implementation of grabbing stock data (currently only shows in WebTV Today, and can only show one hard-coded stock)
+- Garfield comic strip viewer accessible at `wtv-center:/garfield`
 
 ## Setup + running the service
 - Run `npm install` to install all dependencies.
