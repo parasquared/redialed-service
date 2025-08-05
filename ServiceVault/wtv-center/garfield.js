@@ -69,8 +69,7 @@ Garfield
 <td width=25%>Date: <input name=date id=date Value="` + date.getDate().toLocaleString('en-US') + `" bgcolor=444444 text=ffdd33 cursor=cc9933 type=text asciionly size=2 maxlength=2></td>
 </tr></table>
 <br><br>
-<!-- todo: figure out what counts as "modern-ish" (8/6/2000 is apparently not modern enough) -->
-<input type=checkbox name=sunday value=true>Modern-ish Sunday Strip</input
+<input type=checkbox name=sunday value=true>Modern Sunday Strip (November 6, 2011 or newer)</input
 <br>
 <spacer type=block height=150 width=270></spacer>
 <font color="#E7CE4A"><shadow>
