@@ -16,9 +16,7 @@ data = `<html>
 
 <p>Don't have games? Get 'em here! (takes about an hour per game to download)</p>
 <!-- to do: figure out how to download the group (the server recognizes it as valid but doesn't send any files over) -->
-<a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=GamesLC2&group=GamesLC2">Download game information</a>
-<br>
-<a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=GamesLC2-Update&group=GamesLC2-Update">Download game information????</a>
+<a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=GamesLC2&group=GamesLC2">Download game information (doesn't work yet)</a>
 <br>
 
 <a href="wtv-disk:/content/DownloadScreen.tmpl?diskmap=DoomLC2&group=DoomLC2">Download Doom</a>
